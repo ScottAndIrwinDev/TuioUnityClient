@@ -1,18 +1,21 @@
 ﻿using System;
+using System.Configuration;
 using Microsoft.Extensions.Logging;
 
 namespace TuioUnity.Utils
 {
     public class UnityLogger : ILogger
     {
+        public static bool enabled = true;
         public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
         {
+            if (!enabled) return;
             switch (logLevel)
             {
                 case LogLevel.Trace:
                 case LogLevel.Debug:
                 case LogLevel.Information:
-					
+
                     UnityEngine.Debug.Log(FormatMessage(state, exception, formatter));
                     break;
 
@@ -49,7 +52,7 @@ namespace TuioUnity.Utils
         {
             return null;
         }
-        
+
         private object FormatMessage<TState>(TState state, Exception exception, Func<TState, Exception, string> formatter)
         {
             var message = formatter.Invoke(state, exception);

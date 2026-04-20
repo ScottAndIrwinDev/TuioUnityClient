@@ -33,5 +33,6 @@
   "dependencies": {
     "com.unity.textmeshpro": "3.0.0",
     "com.unity.nuget.newtonsoft-json": "3.2.1"
-  }
+  },
+  "_fingerprint": "2f8a4bd6873f5e613eea6d5145bdb6934ffcb17a"
 }

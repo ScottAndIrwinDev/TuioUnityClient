@@ -11,7 +11,7 @@ namespace TuioUnity.Tuio20
     public abstract class Tuio20ComponentBehaviour : TuioBehaviour
     {
         private Tuio20Component _transformComponent;
-        
+
         private Vector2 _tuioPosition = Vector2.zero;
         private float _angle;
 
@@ -30,6 +30,10 @@ namespace TuioUnity.Tuio20
 
         private void UpdateComponent()
         {
+            if (_transformComponent == null)
+            {
+                return;
+            }
             _tuioPosition.x = _transformComponent.Position.X;
             _tuioPosition.y = _transformComponent.Position.Y;
             _angle = -Mathf.Rad2Deg * _transformComponent.Angle;

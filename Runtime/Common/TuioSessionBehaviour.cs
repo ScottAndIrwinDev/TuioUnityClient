@@ -14,8 +14,8 @@ namespace TuioUnity.Common
     {
         [field: SerializeField] public TuioVersion TuioVersion { get; set; } = TuioVersion.Tuio11;
         [field: SerializeField] public TuioConnectionType ConnectionType { get; set; } = TuioConnectionType.UDP;
-        [SerializeField] private string _ipAddress = "10.0.0.20";
-        [field: SerializeField] public int UdpPort { get; set; }= 3333;
+        [SerializeField] public string _ipAddress = "10.0.0.20";
+        [field: SerializeField] public int UdpPort { get; set; } = 3333;
 
         private TuioSession _session;
         private bool _isInitialized;
@@ -40,7 +40,7 @@ namespace TuioUnity.Common
         {
             Initialize();
         }
-        
+
         private void Initialize()
         {
             if (_isInitialized) return;
